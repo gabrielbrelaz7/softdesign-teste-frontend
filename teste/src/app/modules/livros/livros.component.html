@@ -1,0 +1,32 @@
+<div class="topbar">
+
+  <button mat-raised-button (click)="navigateToLivroCreate()" color="primary">
+    Novo livro
+  </button>
+
+  <form (ngSubmit)="getNome($event)">
+    <i class="material-icons">
+      eco
+    </i>
+    <mat-form-field>
+      <mat-label>Pesquisar por nome</mat-label>
+      <input matInput (input)="getNome($event)">
+      </mat-form-field>
+  </form>
+
+  <form>
+    <i class="material-icons">
+      eco
+    </i>
+    <mat-form-field>
+      <mat-label>Pesquisar por autor</mat-label>
+      <input matInput (input)="getAutor($event)">
+    </mat-form-field>
+  </form>
+
+</div>
+
+<app-livro-read 
+  [pesquisaPorNome] = "pesquisaPorNome" 
+  [pesquisaPorAutor] = "pesquisaPorAutor">
+</app-livro-read>
