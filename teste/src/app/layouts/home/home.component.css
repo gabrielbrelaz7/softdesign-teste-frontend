@@ -1,0 +1,40 @@
+.home .title {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.home .subtitle {
+    font-size: 0.9rem;
+}
+
+.sidenav {
+    background-color: #3f51d5;
+    width: 200px;
+}
+
+.sidenav a {
+    color: #fff;
+}
+
+.sidenav i {
+    padding-right: 10px;
+}
+
+.content {
+    padding: 16px;
+    background-color: #fff;
+}
+
+
+@media screen and (max-width: 600px) {
+    .sidenav {
+        width: 100%;
+        height: 70px;
+        position: relative;
+    }
+
+    .content {
+        margin: 0 !important;
+    }
+}

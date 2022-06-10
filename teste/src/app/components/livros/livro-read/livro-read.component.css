@@ -1,0 +1,42 @@
+table {
+    width: 100%;
+}
+
+.actions {
+    width: 20%;
+}
+
+.edit {
+    margin-right: 15px;
+}
+
+i.edit {
+    color: #d9cd26;
+
+}
+
+i.delete {
+    color: #e35e6b;
+}
+
+button {
+    margin: 0 5px;
+}
+
+button.mat-button-wrapper.ng-star-inserted {
+    color: black;
+    padding: 6px;
+}
+
+
+@media screen and (max-width: 600px) {
+
+    td {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    th {
+        font-size: 13px;
+    }
+}

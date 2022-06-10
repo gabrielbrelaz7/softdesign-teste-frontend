@@ -1,0 +1,31 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Autor</th>
+      <th scope="col">N Páginas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let livro of livros; let i = index">
+      <th scope="row">{{ livro.id }}</th>
+      <td>{{ livro.nome }} </td>
+      <td>{{ livro.autor }}</td>
+      <td>{{ livro.paginas }}</td>
+
+      <td>
+        <button mat-raised-button color="primary" (click)="navigateToDetails(livro.id)">Visualizar</button>
+
+        <button mat-raised-button color="primary"
+          *ngIf="livro.alugado === false; else elseButton"
+          (click)="alugarLivro(livro)">
+          Alugar
+        </button>
+        <ng-template #elseButton><button class="mat-button-wrapper" disabled>Alugado</button></ng-template>
+      
+      </td>
+    </tr>
+
+  </tbody>
+</table>
