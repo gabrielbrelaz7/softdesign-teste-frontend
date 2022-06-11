@@ -1,28 +1,44 @@
 <div class="topbar">
 
-  <button mat-raised-button (click)="navigateToLivroCreate()" color="primary">
-    Novo livro
-  </button>
+  <div class="row">
 
-  <form (ngSubmit)="getNome($event)">
-    <i class="material-icons">
-      eco
-    </i>
-    <mat-form-field>
-      <mat-label>Pesquisar por nome</mat-label>
-      <input matInput (input)="getNome($event)">
+  <div class="col-sm-12 col-lg-2">
+
+    <button mat-raised-button (click)="navigateToLivroCreate()" color="primary">
+      Novo livro
+    </button>
+
+  </div>
+
+  <div class="col-sm-12 col-lg-5">
+    <form (ngSubmit)="getNome($event)">
+      <i class="material-icons">
+        eco
+      </i>
+      <mat-form-field>
+        <mat-label>Pesquisar por nome</mat-label>
+        <input matInput (input)="getNome($event)">
+        </mat-form-field>
+    </form>
+
+  </div>
+
+  <div class="col-sm-12 col-lg-5">
+  
+    <form>
+      <i class="material-icons">
+        eco
+      </i>
+      <mat-form-field>
+        <mat-label>Pesquisar por autor</mat-label>
+        <input matInput (input)="getAutor($event)">
       </mat-form-field>
-  </form>
+    </form>
 
-  <form>
-    <i class="material-icons">
-      eco
-    </i>
-    <mat-form-field>
-      <mat-label>Pesquisar por autor</mat-label>
-      <input matInput (input)="getAutor($event)">
-    </mat-form-field>
-  </form>
+  </div>
+  
+
+</div>
 
 </div>
 
