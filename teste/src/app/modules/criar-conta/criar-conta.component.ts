@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../auth.service';
 import { Usuario } from '../usuario.model';
 
@@ -11,31 +12,58 @@ import { Usuario } from '../usuario.model';
 })
 export class CriarContaComponent implements OnInit {
 
-  formUser: FormGroup;
+  
+  formUser: FormGroup = new FormGroup({
+    nome: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    senha: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    alugado: new FormControl(false),
+  });
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    usuario: FormBuilder
-  ) {
-
-    this.formUser = usuario.group({
-      nome: ["", Validators.required],
-      email: ["", Validators.required],
-      senha: ["", Validators.required],
-  });
-
-   }
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
+
   }
 
 
   salvarUsuario() {
-    this.authService.criarUsuario(this.formUser.value).subscribe((usuario: Usuario) => {
-      this.router.navigate(['login']);
-    })
 
+    this.formUser.value.access_token = this.gerarToken() ;
+
+    this.authService.criarUsuario(this.formUser.value).subscribe((usuario: Usuario) => {
+      if(usuario){
+        this.router.navigate(['login']);
+        this.toastr.success('Conta criada com sucesso!', 'Faça o login!')
+      }
+    })
   }
+
+  gerarToken() {
+
+      let sequenciaAlfaNUmerica = ['A','b','c','d','E','f','G','H','i','J','k','l','m','n','O','p'
+      ,'q','R','s','T','u','v','X','w','Y','z','1','2','3','4','5','6','7','8','9'];
+
+      function shuffleArray(arr: any) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      }
+
+      let shuffleSequencia1 = shuffleArray(sequenciaAlfaNUmerica);
+      let shuffleSequencia2 = shuffleArray(sequenciaAlfaNUmerica);
+      let shuffleSequencia3 = shuffleArray(sequenciaAlfaNUmerica);
+      let novaSequencia = shuffleSequencia1.join('') + shuffleSequencia2.join('') + shuffleSequencia3.join('')
+      let access_token = novaSequencia;
+
+      return access_token
+  }
+
 
 }

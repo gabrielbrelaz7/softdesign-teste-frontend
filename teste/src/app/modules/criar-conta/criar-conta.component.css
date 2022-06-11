@@ -11,6 +11,7 @@ button {
 
 mat-card img {
     width: 128px;
+    margin-bottom: 25px;
 }
 
 .signin-content {

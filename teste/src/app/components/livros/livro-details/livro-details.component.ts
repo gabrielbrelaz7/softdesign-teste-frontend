@@ -3,6 +3,7 @@ import { LivroService } from '../livro.service';
 import { Component, OnInit } from '@angular/core';
 import { Livro } from '../livro.model';
 import { ToastrService } from 'ngx-toastr';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-livro-details',
@@ -21,6 +22,17 @@ export class LivroDetailsComponent implements OnInit {
     alugado: false
   }
 
+  sinopse: any;
+
+
+  formEdit: FormGroup = new FormGroup({
+    nome: new FormControl('', [Validators.required]),
+    autor: new FormControl('', [Validators.required]),
+    paginas: new FormControl('', [Validators.required]),
+    sinopse: new FormControl('', [Validators.required]),
+    alugado: new FormControl(false),
+  });
+
   constructor(
     private livroService: LivroService, 
     private router: Router, 
@@ -33,16 +45,20 @@ export class LivroDetailsComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id')
     this.livroService.readById(id).subscribe((livro: any) => {
       this.livro = livro
+      this.sinopse = livro.sinopse
     })
-
-    console.log(this.livro);
   }
 
   updateLivro():void {
-    this.livroService.update(this.livro.id, this.livro).subscribe(()=>{
+
+    let paragrafos = this.formEdit.value.sinopse?.split('\n');
+    this.formEdit.value.sinopse = paragrafos;
+
+    this.livroService.update(this.livro.id, this.formEdit.value).subscribe(()=>{
       this.toastr.success('Livro editado com sucesso!');
       this.router.navigate(['/']);
     });
+    
   }
 
 
@@ -64,7 +80,7 @@ export class LivroDetailsComponent implements OnInit {
   }
   
 
-  cancel():void {
+  voltar():void {
     this.router.navigate(['/'])
   }
 }

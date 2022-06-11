@@ -19,7 +19,7 @@ export class LivroCreateComponent implements OnInit {
     alugado: false
   }
 
-  formLivro = new FormGroup({
+  formLivro: FormGroup = new FormGroup({
 
     nome: new FormControl('', [Validators.required]),
     autor: new FormControl('', [Validators.required]),
@@ -44,6 +44,10 @@ export class LivroCreateComponent implements OnInit {
   }
 
   createLivro(): void {
+
+    let paragrafos = this.formLivro.value.sinopse?.split('\n');
+    this.formLivro.value.sinopse = paragrafos;
+
     this.livroService.create(this.formLivro.value).subscribe(() => {
       this.router.navigate(['/']);
       this.toastr.success('Livro criado com sucesso!');
@@ -51,7 +55,7 @@ export class LivroCreateComponent implements OnInit {
   }
 
 
-  cancel(): void {
+  voltar(): void {
     this.router.navigate(['/'])
   }
 

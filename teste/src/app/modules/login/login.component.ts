@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../auth.service';
 import { Usuario } from '../usuario.model';
 
@@ -11,20 +12,18 @@ import { Usuario } from '../usuario.model';
 })
 export class LoginComponent implements OnInit {
 
-  formUser: FormGroup;
+
+  formUser: FormGroup = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    senha: new FormControl('', [Validators.required, Validators.minLength(6)]),
+  });
+
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    usuario: FormBuilder
-  ) {
-
-    this.formUser = usuario.group({
-      email: ["", Validators.required],
-      senha: ["", Validators.required],
-  });
-
-   }
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     
@@ -40,11 +39,12 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.formUser.value).subscribe((usuario: Usuario[]) => {
       
       if(usuario.length === 0) {
-        console.log("Nenhum usuário");
+        this.toastr.info("Usuário não autenticado", "Não foi possível realizar o login");
       }
       else{
         window.localStorage.setItem('token', usuario[0].access_token)
         this.router.navigate(['/'])
+        this.toastr.success("Login efetuado com sucesso");
       }
       
     })

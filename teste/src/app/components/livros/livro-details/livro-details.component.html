@@ -1,10 +1,10 @@
-<div class="row d-flex align-items-end">
+<div class="row d-flex">
 
-    <div class="col-3">
+    <div class="col-md-12 col-lg-4 col-xl-3">
         <img src="./../../../../assets/book.png" alt="Livro">
     </div>
 
-    <div class="col-6 my-4">
+    <div class="col-md-12 col-lg-6 my-4">
 
     <div><strong>Nome do Livro:</strong> {{livro.nome}}</div>
     <br>
@@ -12,7 +12,10 @@
     <br>
     <div><strong>N Páginas:</strong> {{livro.paginas}}</div>
     <br>
-    <div><strong>Sinopse:</strong> {{livro.sinopse}}</div>
+    <div><strong>Sinopse:</strong></div>
+    <div *ngFor="let paragrafo of sinopse; let i = index">
+        <p>{{paragrafo}}</p>
+    </div>
 
     </div>
 </div>
@@ -22,7 +25,7 @@
 <div class="row">
 
 
-<div class="col-8">
+<div class="col-10">
 <mat-card class="home mat-elevation-z3">
     <div>
         <button mat-raised-button color="primary"
@@ -31,45 +34,54 @@
         Alugar
         </button>
         <ng-template #elseButton><button  mat-raised-button disabled>Alugado</button></ng-template>
-        <button mat-raised-button (click)="cancel()" color="primary">
-            Voltar
-        </button>
+    
     </div>
-    <form *ngIf="livro.alugado === false">
+    <form [formGroup]="formEdit" (ngSubmit)="updateLivro()" *ngIf="livro.alugado === false">
         <mat-form-field>
             <input matInput placeholder="Nome do Livro" 
+            formControlName="nome"
             [(ngModel)]="livro.nome"
-            name="name"
+            name="nome"
             >
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Autor" 
+            <input matInput placeholder="Autor"
+            formControlName="autor"
             [(ngModel)]="livro.autor"
             name="autor"
             >
         </mat-form-field> 
         <mat-form-field>
-            <input matInput placeholder="Paginas" 
+            <input matInput placeholder="N Páginas"
+            formControlName="paginas"
             [(ngModel)]="livro.paginas"
             name="paginas"
             >
         </mat-form-field> 
+
+
         <mat-form-field>
-            <input matInput placeholder="Preço" 
-            [(ngModel)]="livro.sinopse"
-            name="preco"
-            >
+            <textarea matInput rows="10" placeholder="Insira aqui a nova sinopse do livro" formControlName="sinopse" name="sinopse"></textarea>
         </mat-form-field> 
+
+        <div>
+            <button *ngIf="livro.alugado === false" mat-raised-button>
+                Editar
+            </button>
+
+            <button *ngIf="livro.alugado === false" mat-raised-button (click)="deleteLivro()">
+                Deletar
+            </button>
+        
+            <button mat-raised-button (click)="voltar()" class="btn btn-secondary">
+                Voltar
+            </button>
+
+        </div>
+
+
     </form>
 
-    
-    <button *ngIf="livro.alugado === false" mat-raised-button (click)="updateLivro()">
-        Editar
-    </button>
-    
-    <button *ngIf="livro.alugado === false" mat-raised-button (click)="deleteLivro()">
-        Deletar
-    </button>
 
 </mat-card>
 

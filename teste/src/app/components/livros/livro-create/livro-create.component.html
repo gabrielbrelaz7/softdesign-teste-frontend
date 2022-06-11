@@ -2,36 +2,40 @@
     <mat-card-title>
         Novo livro
     </mat-card-title>
+    <mat-card-subtitle>
+        Preencha todos os campos abaixo
+    </mat-card-subtitle>
     <form [formGroup]="formLivro" (ngSubmit)="createLivro()">
         <mat-form-field>
-            <input matInput placeholder="Nome" type="text" formControlName="nome" required
-            >
+            <input matInput placeholder="Nome" type="text" formControlName="nome" required>
             <mat-error *ngIf="formLivro.controls.nome.invalid">Campo requerido</mat-error>
         </mat-form-field>
         
         <mat-form-field>
-            <input matInput placeholder="Autor" type="text" formControlName="autor" required 
-            >
+            <input matInput placeholder="Autor" type="text" formControlName="autor" required >
             <mat-error *ngIf="formLivro.controls.autor.invalid">Campo requerido</mat-error>
         </mat-form-field>
+
         <mat-form-field>
-            <input matInput placeholder="Páginas" type="number" formControlName="paginas" required
-            >
+            <input matInput placeholder="Páginas" type="number" formControlName="paginas" required>
             <mat-error *ngIf="formLivro.controls.paginas.invalid">Campo requerido</mat-error>
         </mat-form-field> 
+
         <mat-form-field>
-            <input matInput placeholder="Sinopse" type="textarea" formControlName="sinopse" required
-            >
+            <textarea matInput rows="6" placeholder="Escreva aqui a sinopse do livro" type="textarea" formControlName="sinopse" required>
+            </textarea>
             <mat-error *ngIf="formLivro.controls.sinopse.invalid">Campo requerido</mat-error>
         </mat-form-field> 
 
-        <button mat-raised-button color="primary">
-            Salvar
-        </button>
+        <div>
+            <button mat-raised-button color="primary" [disabled]="!formLivro.valid">
+                Criar livro
+            </button>
 
-        <button mat-raised-button (click)="cancel()">
-            Voltar
-        </button>
+            <button mat-raised-button (click)="voltar()">
+                Voltar
+            </button>
+        </div>
     </form>
     
 </mat-card>
