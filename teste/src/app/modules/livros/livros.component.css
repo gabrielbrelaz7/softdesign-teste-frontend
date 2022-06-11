@@ -7,11 +7,26 @@ button {
 }
 
 .topbar form  {
-    margin: 0 20px;
+    margin: 5px 20px;
     display: flex;
 }
 
 .topbar mat-form-field {
-    top: -8px !important;
+    top: -16px !important;
+}
+
+@media screen and (max-width: 768px) {
+
+    .topbar {
+        display: block;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0 !important;
+    }
 }
 

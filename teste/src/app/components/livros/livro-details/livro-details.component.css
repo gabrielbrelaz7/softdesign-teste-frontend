@@ -15,3 +15,14 @@ img {
 .row {
     padding: 0 20px;
 }
+
+
+@media screen and (max-width: 768px) {
+    button {
+        margin: 10px;
+    }
+
+    .details {
+        text-align: left;
+    }
+}

@@ -2,3 +2,17 @@
 .header .logo {
     max-height: 32px;
 }
+
+@media screen and (max-width: 768px) {
+
+    .mat-toolbar-row, .mat-toolbar-single-row {
+        padding: 80px !important;
+        display: flex;
+       justify-content: center;
+    }
+
+    mat-toolbar {
+        text-align: center;
+    }
+
+}

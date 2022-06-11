@@ -1,10 +1,11 @@
-<mat-card class="home mat-elevation-z3">
+<mat-card class="home mat-elevation-z3 col-sm-12 col-lg-8">
     <mat-card-title>
         Novo livro
     </mat-card-title>
     <mat-card-subtitle>
         Preencha todos os campos abaixo
     </mat-card-subtitle>
+    
     <form [formGroup]="formLivro" (ngSubmit)="createLivro()">
         <mat-form-field>
             <input matInput placeholder="Nome" type="text" formControlName="nome" required>

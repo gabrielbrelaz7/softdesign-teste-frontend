@@ -39,4 +39,9 @@ button.mat-button-wrapper.ng-star-inserted {
     th {
         font-size: 13px;
     }
+
+    button {
+        margin: 5px!important;
+        font-size: 12px !important;
+    }
 }
