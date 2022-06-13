@@ -3,24 +3,24 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+	selector: 'app-header',
+	templateUrl: './header.component.html',
+	styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(
+	constructor(
     private router: Router,
     private toastr: ToastrService
-    ) { }
+	) { }
+	
+	ngOnInit(): void {
+	}
 
-  ngOnInit(): void {
-  }
-
-  logout() {
-    window.localStorage.removeItem('token');
-    this.router.navigate(['login']);
-    this.toastr.success("Deslogado com sucesso!")
-  }
+	logout() {
+		window.localStorage.removeItem('token');
+		this.router.navigate(['login']);
+		this.toastr.success('Deslogado com sucesso!');
+	}
 
 }

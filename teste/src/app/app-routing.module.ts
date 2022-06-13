@@ -11,41 +11,41 @@ import { GuardsGuard } from './shared/auth/guards.guard';
 
 const routes: Routes = [
 
-  {
-    path:"",
-    component: HomeComponent,
-    children: [
-      {
-        path:"",
-        component: LivrosComponent,
-      },
-      {
-        path:"livros/criar",
-        component: LivroCreateComponent,
-      },
-      {
-        path:"livros/visualizar/:id",
-        component: LivroDetailsComponent,
-      },
-    ],
-    canActivate: [GuardsGuard]
+	{
+		path:'',
+		component: HomeComponent,
+		children: [
+			{
+				path:'',
+				component: LivrosComponent,
+			},
+			{
+				path:'livros/criar',
+				component: LivroCreateComponent,
+			},
+			{
+				path:'livros/visualizar/:id',
+				component: LivroDetailsComponent,
+			},
+		],
+		canActivate: [GuardsGuard]
     
-  },
+	},
 
-  {
-    path:"",
-    component: AuthenticationComponent,
-    children: [
-      {path: '', redirectTo: 'login', pathMatch: 'full'},
-      {path: 'login', component: LoginComponent},
-      {path: 'criar-conta', component: CriarContaComponent},
-    ]
-  },
+	{
+		path:'',
+		component: AuthenticationComponent,
+		children: [
+			{path: '', redirectTo: 'login', pathMatch: 'full'},
+			{path: 'login', component: LoginComponent},
+			{path: 'criar-conta', component: CriarContaComponent},
+		]
+	},
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule]
 })
 export class AppRoutingModule { }

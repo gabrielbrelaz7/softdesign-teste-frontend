@@ -1,8 +1,8 @@
 export interface Livro {
-    id?: number
+    id: number
     nome: string
     autor: string,
     paginas?: number,
-    sinopse: string,
+    sinopse: string[],
     alugado?: boolean
 }

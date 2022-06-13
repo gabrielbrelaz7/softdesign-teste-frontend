@@ -6,57 +6,59 @@ import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-livro-create',
-  templateUrl: './livro-create.component.html',
-  styleUrls: ['./livro-create.component.css']
+	selector: 'app-livro-create',
+	templateUrl: './livro-create.component.html',
+	styleUrls: ['./livro-create.component.css']
 })
 export class LivroCreateComponent implements OnInit {
 
-  livro : Livro = {
-    nome: '',
-    autor: '',
-    sinopse: '',
-    alugado: false
-  }
+	livro : Livro = {
+		nome: '',
+		autor: '',
+		paginas: 123,
+		sinopse: [''],
+		alugado: false,
+		id: 0
+	};
 
-  formLivro: FormGroup = new FormGroup({
+	formLivro: FormGroup = new FormGroup({
 
-    nome: new FormControl('', [Validators.required]),
-    autor: new FormControl('', [Validators.required]),
-    paginas: new FormControl('', [Validators.required]),
-    sinopse: new FormControl('', [Validators.required]),
-    alugado: new FormControl(false),
+		nome: new FormControl('', [Validators.required]),
+		autor: new FormControl('', [Validators.required]),
+		paginas: new FormControl(123, [Validators.required]),
+		sinopse: new FormControl('', [Validators.required]),
+		alugado: new FormControl(false),
 
-  });
+	});
 
 
-  constructor(
+	constructor(
     private livroService: LivroService, 
     private router: Router,
     private toastr: ToastrService
-    ) 
-    { 
+	) 
+	{ 
 
-    }
+	}
+	ngOnInit(): void {
+	}
+		
 
-  ngOnInit(): void {
-  
-  }
+	createLivro(): void {
 
-  createLivro(): void {
+		const paragrafos = this.formLivro.value.sinopse?.split('\n');
+		this.formLivro.value.sinopse = paragrafos;
 
-    let paragrafos = this.formLivro.value.sinopse?.split('\n');
-    this.formLivro.value.sinopse = paragrafos;
-
-    this.livroService.create(this.formLivro.value).subscribe(() => {
-      this.router.navigate(['/']);
-      this.toastr.success('Livro criado com sucesso!');
-    })
-  }
+		this.livroService.create(this.formLivro.value).subscribe((response) => {
+			console.log(response);
+			this.router.navigate(['/']);
+			this.toastr.success('Livro criado com sucesso!');
+		});
+	}
 
 
-  voltar(): void {
-    this.router.navigate(['/'])
-  }
+	voltar(): void {
+		this.router.navigate(['/']);
+	}
 
 }

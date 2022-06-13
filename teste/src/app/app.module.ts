@@ -12,7 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -40,47 +40,47 @@ import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
+	declarations: [
+		AppComponent,
+		HomeComponent,
 
-    HeaderComponent,
-    FooterComponent,
-    LivrosComponent,
-    LivroCreateComponent,
-    LivroReadComponent,
-    LivroDetailsComponent,
-    LoginComponent,
-    AuthenticationComponent,
-    CriarContaComponent
+		HeaderComponent,
+		FooterComponent,
+		LivrosComponent,
+		LivroCreateComponent,
+		LivroReadComponent,
+		LivroDetailsComponent,
+		LoginComponent,
+		AuthenticationComponent,
+		CriarContaComponent
    
 
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		BrowserAnimationsModule,
+		ToastrModule.forRoot(),
 
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatCardModule,
-    MatButtonModule,
-    MatSnackBarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
+		MatToolbarModule,
+		MatSidenavModule,
+		MatListModule,
+		MatCardModule,
+		MatButtonModule,
+		MatSnackBarModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatTableModule,
+		MatPaginatorModule,
+		MatSortModule,
 
 
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
+		HttpClientModule,
+		FormsModule,
+		ReactiveFormsModule
 
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
