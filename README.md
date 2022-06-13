@@ -11,5 +11,5 @@ O intuito deste teste técnico é avaliar seus conhecimentos técnicos com frame
 4. Inicie a API com o comando "json-server --watch db.json" para utilizar os dados em mock
 3. Inicie o comando "npm run lint" para rodar o ESLint e escanear o código
 4. Inicie o comando "ng test" para rodar os testes unitários e componentes
-5. Assim que finalizar com sucesso as etapas anteriores, você pode avaliar o teste técnico
+5. Assim que finalizar com sucesso as etapas anteriores, você pode avaliar o teste técnico no provável link: http://localhost:4200/
 
