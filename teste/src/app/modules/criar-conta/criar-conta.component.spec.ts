@@ -56,7 +56,7 @@ describe('CriarContaComponent', () => {
 
       }
 
-	it('should create the component with book fields visible and disabled button', () => {
+	it('should create the component with user fields visible and disabled button', () => {
 		expect(component).toBeTruthy();
 
         expect(inputNome).toBeTruthy();
@@ -75,7 +75,7 @@ describe('CriarContaComponent', () => {
 
     });
     
-    it('should allow send book with valid info', () => {
+    it('should allow create user with valid info', () => {
         
     spyOn(component, 'salvarUsuario').and.callThrough();
     mockedService.criarUsuario.and.returnValue(of([]))

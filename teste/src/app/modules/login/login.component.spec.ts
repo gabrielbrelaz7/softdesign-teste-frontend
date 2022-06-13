@@ -52,7 +52,7 @@ describe('LoginComponent', () => {
 
       }
 
-	it('should create the component with book fields visible and disabled button', () => {
+	it('should create the component with login fields visible', () => {
 		expect(component).toBeTruthy();
 
         expect(inputEmail).toBeTruthy();
@@ -69,7 +69,7 @@ describe('LoginComponent', () => {
 
     });
     
-    it('should allow send book with valid info', () => {
+    it('should allow send login with valid info', () => {
         
     spyOn(component, 'salvarUsuario').and.callThrough();
     mockedService.login.and.returnValue(of([]))

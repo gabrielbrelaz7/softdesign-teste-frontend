@@ -36,7 +36,7 @@ describe('LivroReadComponent', () => {
         });
 
 
-	it('should update the component with table visible', () => {
+	it('should read the component with table visible', () => {
 		expect(component).toBeTruthy();
         expect(table).toBeTruthy();
 

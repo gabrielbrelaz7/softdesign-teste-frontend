@@ -62,7 +62,7 @@ describe('LivroDetailsComponent', () => {
         inputSinopse.nativeElement.dispatchEvent(new Event('input'));
       }
 
-	it('should update the component with book fields visible', () => {
+	it('should read the component with book fields visible', () => {
 		expect(component).toBeTruthy();
 
         expect(inputNome).toBeTruthy();
@@ -86,7 +86,7 @@ describe('LivroDetailsComponent', () => {
 
     });
     
-    it('should allow update book with valid info', () => {
+    it('should allow read book with valid info', () => {
         
     spyOn(component, 'updateLivro').and.callThrough();
     spyOn(component, 'alugarLivro').and.callThrough();

@@ -1,27 +1,15 @@
-# Teste
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
+# Teste Técnico Frontend Angular
 
-## Development server
+O intuito deste teste técnico é avaliar seus conhecimentos técnicos com framework Angular
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Informações do projeto
 
-## Code scaffolding
+1. Para avaliar o teste em sua máquina local, faça um clone deste repositório do Github
+2. Rode o comando "npm install" para instalar todas as depêndencias do sistema
+3. Inicie o sistema com o comando "ng serve"
+4. Inicie a API com o comando "json-server --watch db.json" para utilizar os dados em mock
+3. Inicie o comando "npm run lint" para rodar o ESLint e escanear o código
+4. Inicie o comando "ng test" para rodar os testes unitários e componentes
+5. Assim que finalizar com sucesso as etapas anteriores, você pode avaliar o teste técnico
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

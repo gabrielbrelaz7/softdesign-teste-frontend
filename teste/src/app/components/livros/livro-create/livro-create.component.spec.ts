@@ -1,6 +1,6 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, ComponentFixtureAutoDetect, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ToastrService } from 'ngx-toastr';
@@ -23,7 +23,7 @@ describe('LivroCreateComponent', () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-            imports: [FormsModule, RouterTestingModule],
+            imports: [FormsModule, RouterTestingModule, ReactiveFormsModule],
 			declarations: [ LivroCreateComponent ],
             providers: [
                 { provide: ComponentFixtureAutoDetect, useValue: true },
@@ -79,12 +79,12 @@ describe('LivroCreateComponent', () => {
     expect(component.livro.nome).toBe('');
     expect(component.livro.autor).toBe('');
     expect(component.livro.paginas).toBe(123);
-    expect(component.livro.sinopse).toEqual(['']);
+    expect(component.livro.sinopse).toEqual([]);
     expect(component.livro.alugado).toBe(false);
 
     });
     
-    it('should allow send book with valid info', () => {
+    it('should allow create book with valid info', () => {
         
     spyOn(component, 'createLivro').and.callThrough();
     mockedService.create.and.returnValue(of([]))
