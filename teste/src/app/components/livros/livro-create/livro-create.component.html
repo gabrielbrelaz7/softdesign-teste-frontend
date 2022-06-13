@@ -8,23 +8,22 @@
     
     <form [formGroup]="formLivro" (ngSubmit)="createLivro()">
         <mat-form-field>
-            <input matInput placeholder="Nome" type="text" formControlid="nome" id="nome" required>
+            <input matInput placeholder="Nome" type="text" formControlName="nome" id="nome" required>
             <mat-error *ngIf="formLivro.controls.nome.invalid">Campo requerido</mat-error>
         </mat-form-field>
         
         <mat-form-field>
-            <input matInput placeholder="Autor" type="text" formControlid="autor" id="autor" required >
+            <input matInput placeholder="Autor" type="text" formControlName="autor" id="autor" required >
             <mat-error *ngIf="formLivro.controls.autor.invalid">Campo requerido</mat-error>
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Páginas" type="number" formControlid="paginas" id="paginas" required>
+            <input matInput placeholder="N° Páginas" type="number" formControlName="paginas" id="paginas" required>
             <mat-error *ngIf="formLivro.controls.paginas.invalid">Campo requerido</mat-error>
         </mat-form-field> 
 
         <mat-form-field>
-            <textarea matInput rows="6" placeholder="Escreva aqui a sinopse do livro" type="textarea" formControlid="sinopse" id="sinopse" required>
-            </textarea>
+            <textarea matInput rows="6" placeholder="Escreva aqui a sinopse do livro" type="textarea" formControlName="sinopse" id="sinopse" required></textarea>
             <mat-error *ngIf="formLivro.controls.sinopse.invalid">Campo requerido</mat-error>
         </mat-form-field> 
 

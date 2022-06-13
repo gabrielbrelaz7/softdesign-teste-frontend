@@ -10,7 +10,7 @@
     <br>
     <div><strong>Autor:</strong> {{livro.autor}}</div>
     <br>
-    <div><strong>N Páginas:</strong> {{livro.paginas}}</div>
+    <div><strong>N° Páginas:</strong> {{livro.paginas}}</div>
     <br>
     <div><strong>Sinopse:</strong></div>
     <div *ngFor="let paragrafo of sinopse; let i = index">
@@ -35,6 +35,10 @@
         Alugar
         </button>
         <ng-template #elseButton><button  mat-raised-button disabled>Alugado</button></ng-template>
+
+        <button mat-raised-button (click)="voltar()" class="btn btn-secondary">
+            Voltar
+        </button>
     
     </div>
     <form [formGroup]="formEdit" (ngSubmit)="updateLivro()" *ngIf="livro.alugado === false">
@@ -55,7 +59,7 @@
             >
         </mat-form-field> 
         <mat-form-field>
-            <input matInput placeholder="N Páginas"
+            <input matInput placeholder="N° Páginas"
             formControlName="paginas"
             [(ngModel)]="livro.paginas"
             name="paginas"
@@ -77,15 +81,8 @@
                 Deletar
             </button>
         
-            <button mat-raised-button (click)="voltar()" class="btn btn-secondary">
-                Voltar
-            </button>
-
         </div>
-
-
     </form>
-
 
 </mat-card>
 

@@ -16,7 +16,7 @@ export class LivroCreateComponent implements OnInit {
 		nome: '',
 		autor: '',
 		paginas: 123,
-		sinopse: [''],
+		sinopse: [],
 		alugado: false,
 		id: 0
 	};
@@ -25,8 +25,8 @@ export class LivroCreateComponent implements OnInit {
 
 		nome: new FormControl('', [Validators.required]),
 		autor: new FormControl('', [Validators.required]),
-		paginas: new FormControl(123, [Validators.required]),
-		sinopse: new FormControl('', [Validators.required]),
+		paginas: new FormControl('', [Validators.required]),
+		sinopse: new FormControl([], [Validators.required]),
 		alugado: new FormControl(false),
 
 	});

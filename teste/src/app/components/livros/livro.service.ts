@@ -10,27 +10,6 @@ export class LivroService {
 
 	constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
-	// showMensage(msg: string, isError: boolean = false): void {
-	//   this.snackBar.open(msg, "x", {
-	//     duration: 3000,
-	//     horizontalPosition: "center",
-	//     verticalPosition: "top",
-	//     panelClass: isError ? ['msg-error'] : ['msg-success']
-	//   });
-	// }
-
-	// create(livro: Livro): Observable<Livro> {
-	//   return this.http.post<Livro>(this.baseUrl, livro).pipe(
-	//     map(obj => obj),
-	//     catchError(e => this.erroHandler(e))
-	//   )
-	// }
-
-	// erroHandler(e : any): Observable<any>{
-	//   this.showMensage('Ocorreu um erro! tente novamente', true)
-	//   return EMPTY
-	// }
-
 	create(data: Livro) {
 		return this.http.post('http://localhost:3000/livros', data);
 	}
@@ -63,29 +42,4 @@ export class LivroService {
 	alugar(id: number, data: Livro) {
 		return this.http.put(`http://localhost:3000/livros/${id}`, data);
 	}
-
-
-	// readById(id: number): Observable<Livro> {
-	//   const url = `${this.baseUrl}/${id}`
-	//   return this.http.get<Livro>(url).pipe(
-	//     map(obj => obj),
-	//     catchError(e => this.erroHandler(e))
-	//   )
-	// }
-
-	// update(livro: Livro): Observable<Livro> {
-	//   const url = `${this.baseUrl}/${livro.id}`
-	//   return this.http.put<Livro>(url,livro).pipe(
-	//     map(obj => obj),
-	//     catchError(e => this.erroHandler(e))
-	//   )
-	// }
-
-	// delete(id: number): Observable<Livro> {
-	//   const url = `${this.baseUrl}/${id}`
-	//   return this.http.delete<Livro>(url).pipe(
-	//     map(obj => obj),
-	//     catchError(e => this.erroHandler(e))
-	//   )
-	// }
 }

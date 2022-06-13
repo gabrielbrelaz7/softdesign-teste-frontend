@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
 
 	logout() {
 		window.localStorage.removeItem('token');
+		window.localStorage.removeItem('nome');
 		this.router.navigate(['login']);
 		this.toastr.success('Deslogado com sucesso!');
 	}

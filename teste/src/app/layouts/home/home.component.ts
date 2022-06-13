@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+	nomeUsuario: string;
+
 	ngOnInit(): void {
-		// Not implemented
+		this.nomeUsuario = window.localStorage.getItem('nome');
 	}
 	
 	refresh() {
