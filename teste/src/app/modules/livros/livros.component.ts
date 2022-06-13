@@ -16,6 +16,7 @@ export class LivrosComponent implements OnInit {
 
 	
 	ngOnInit(): void {
+		// Not implemented
 	}
 
 	navigateToLivroCreate(): void {

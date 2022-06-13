@@ -5,20 +5,20 @@
         <form [formGroup]="formUser" (ngSubmit)="salvarUsuario()">
 
           <mat-form-field class="full-width-input">
-            <input matInput type="text" placeholder="email" formControlName="email" required>
+            <input id="email" matInput type="text" placeholder="email" formControlName="email" required>
 
             <mat-error *ngIf="formUser.controls.email.invalid">Campo requerido e deve ser um email válido</mat-error>
 
           </mat-form-field>
   
           <mat-form-field class="full-width-input separate">
-            <input matInput type="password" placeholder="Senha" formControlName="senha" required>
+            <input id="senha" matInput type="password" placeholder="Senha" formControlName="senha" required>
             <mat-error *ngIf="formUser.controls.senha.invalid">Campo requerido e mínimo de 6 caracteres</mat-error>
 
           </mat-form-field>
   
           <!-- <button mat-raised-button color="primary" type="submit" style="width: 100%;" [disabled]="form.invalid || isLogin"> -->
-        <button mat-raised-button color="primary" type="submit" style="width: 100%;">
+        <button id="loginButton" mat-raised-button color="primary" type="submit" style="width: 100%;">
             Login
             <!-- <div *ngIf="isLogin; else loginText">Loading ...</div> -->
           </button>

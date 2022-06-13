@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { Livro } from './livro.model';
-import { Observable } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',
@@ -32,36 +31,36 @@ export class LivroService {
 	//   return EMPTY
 	// }
 
-	create(data: Livro): Observable<any> {
+	create(data: Livro) {
 		return this.http.post('http://localhost:3000/livros', data);
 	}
 
-	read(): Observable<Livro[]> {
+	read() {
 
 		return this.http.get<Livro[]>('http://localhost:3000/livros');
 	}
 
-	update(id: number, data: Livro): Observable<object> {
+	update(id: number, data: Livro) {
 		return this.http.put(`http://localhost:3000/livros/${id}`, data);
 	}
 
-	delete(id: number): Observable<object> {
+	delete(id: number) {
 		return this.http.delete(`http://localhost:3000/livros/${id}`);
 	}
 
-	readById(id: string): Observable<any> {
+	readById(id: string) {
 		return this.http.get(`http://localhost:3000/livros/${id}`);
 	}
 
-	readByNome(nomeLivro: Livro): Observable<any> {
+	readByNome(nomeLivro: Livro) {
 		return this.http.get(`http://localhost:3000/livros?nome=${nomeLivro}`);
 	}
 
-	readByAutor(autor: Livro): Observable<any> {
+	readByAutor(autor: Livro) {
 		return this.http.get(`http://localhost:3000/livros?autor=${autor}`);
 	}
 
-	alugar(id: number, data: Livro): Observable<object> {
+	alugar(id: number, data: Livro) {
 		return this.http.put(`http://localhost:3000/livros/${id}`, data);
 	}
 

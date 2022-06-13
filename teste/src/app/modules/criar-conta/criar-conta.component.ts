@@ -28,6 +28,7 @@ export class CriarContaComponent implements OnInit {
 
 	
 	ngOnInit(): void {
+		// Not implemented
 	}
 	
 	salvarUsuario() {
@@ -36,7 +37,7 @@ export class CriarContaComponent implements OnInit {
 
 		this.authService.criarUsuario(this.formUser.value).subscribe((usuario: Usuario) => {
 			if(usuario){
-				this.router.navigate(['login']);
+				this.router.navigate(['/login']);
 				this.toastr.success('Conta criada com sucesso!', 'Faça o login!');
 			}
 		});

@@ -11,7 +11,7 @@ styleUrls: ['./livro-read.component.css']
 })
 export class LivroReadComponent implements OnInit {
 
-livros?: Livro[];
+livros?: Livro[] = [];
 
 @Input() pesquisaPorNome: string;
 @Input() pesquisaPorAutor: string;
@@ -56,7 +56,7 @@ this.livroService.alugar(livro.id, livro).subscribe(()=>{
 }
 
 pesquisarNome(parametro: any): void {
-this.livroService.readByNome(parametro).subscribe((livro: Livro[]):void => {
+this.livroService.readByNome(parametro).subscribe((livro: any):void => {
 
 	if(livro.length !== 0 && parametro !== '') {
 		this.livros = livro;
@@ -67,8 +67,8 @@ this.livroService.readByNome(parametro).subscribe((livro: Livro[]):void => {
 });
 }
 
-pesquisarAutor(parametro:any): void {
-this.livroService.readByAutor(parametro).subscribe((livro: Livro[]):void => {
+pesquisarAutor(parametro: any): void {
+this.livroService.readByAutor(parametro).subscribe((livro: any):void => {
 	if(livro.length !== 0 && parametro !== '') {
 		this.livros = livro;
 	}

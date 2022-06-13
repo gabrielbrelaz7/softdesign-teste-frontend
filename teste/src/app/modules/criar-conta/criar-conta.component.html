@@ -5,24 +5,24 @@
       <form [formGroup]="formUser" (ngSubmit)="salvarUsuario()">
 
         <mat-form-field class="full-width-input">
-            <input matInput type="text" placeholder="Nome e Sobrenome" formControlName="nome" required>
+            <input id="nome" matInput type="text" placeholder="Nome e Sobrenome" formControlName="nome" required>
 
             <mat-error *ngIf="formUser.controls.nome.invalid">Campo requerido</mat-error>
         </mat-form-field>
 
           <mat-form-field class="full-width-input">
-            <input matInput type="text" placeholder="Email" formControlName="email" required>
+            <input id="email" matInput type="text" placeholder="Email" formControlName="email" required>
 
             <mat-error *ngIf="formUser.controls.email.invalid">Campo requerido e deve ser email válido</mat-error>
           </mat-form-field>
   
           <mat-form-field class="full-width-input separate">
-            <input matInput type="password" placeholder="Senha" formControlName="senha" required>
+            <input id="senha" matInput type="password" placeholder="Senha" formControlName="senha" required>
 
             <mat-error *ngIf="formUser.controls.senha.invalid">Campo requerido e com mínimo de 6 caracteres</mat-error>
           </mat-form-field>
   
-          <button mat-raised-button color="primary" style="width: 100%" [disabled]="!formUser.valid">
+          <button id="createButton" mat-raised-button color="primary" style="width: 100%" [disabled]="!formUser.valid">
             Criar conta
           </button>
 

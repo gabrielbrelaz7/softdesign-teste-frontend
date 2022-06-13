@@ -18,7 +18,7 @@ export class LivroDetailsComponent implements OnInit {
 		id: 1,
 		nome: '',
 		autor: '',
-		paginas: 232,
+		paginas: 123,
 		sinopse: [],
 		alugado: false
 	};
@@ -28,7 +28,7 @@ export class LivroDetailsComponent implements OnInit {
 	formEdit: FormGroup = new FormGroup({
 		nome: new FormControl('', [Validators.required]),
 		autor: new FormControl('', [Validators.required]),
-		paginas: new FormControl('', [Validators.required]),
+		paginas: new FormControl(123, [Validators.required]),
 		sinopse: new FormControl('', [Validators.required]),
 		alugado: new FormControl(false),
 	});
@@ -43,7 +43,7 @@ export class LivroDetailsComponent implements OnInit {
 
 	ngOnInit(): void {
 		const id = this.route.snapshot.paramMap.get('id');
-		this.livroService.readById(id).subscribe((response) => {
+		this.livroService.readById(id).subscribe((response: any) => {
 			this.livro = response;
 			this.sinopse = response.sinopse;
 		});

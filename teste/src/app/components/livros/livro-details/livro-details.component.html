@@ -30,7 +30,8 @@
     <div>
         <button mat-raised-button color="primary"
         *ngIf="livro.alugado === false; else elseButton"
-        (click) = "alugarLivro()">
+        (click) = "alugarLivro()"
+        id="alugarButton">
         Alugar
         </button>
         <ng-template #elseButton><button  mat-raised-button disabled>Alugado</button></ng-template>
@@ -42,6 +43,7 @@
             formControlName="nome"
             [(ngModel)]="livro.nome"
             name="nome"
+            id="nome"
             >
         </mat-form-field>
         <mat-form-field>
@@ -49,6 +51,7 @@
             formControlName="autor"
             [(ngModel)]="livro.autor"
             name="autor"
+            id="autor"
             >
         </mat-form-field> 
         <mat-form-field>
@@ -56,20 +59,21 @@
             formControlName="paginas"
             [(ngModel)]="livro.paginas"
             name="paginas"
+            id="paginas"
             >
         </mat-form-field> 
 
 
         <mat-form-field>
-            <textarea matInput rows="10" placeholder="Insira aqui a nova sinopse do livro" formControlName="sinopse" name="sinopse"></textarea>
+            <textarea matInput rows="10" placeholder="Insira aqui a nova sinopse do livro" formControlName="sinopse" name="sinopse" id="sinopse"></textarea>
         </mat-form-field> 
 
         <div>
-            <button *ngIf="livro.alugado === false" mat-raised-button>
+            <button *ngIf="livro.alugado === false" mat-raised-button id="editButton">
                 Editar
             </button>
 
-            <button *ngIf="livro.alugado === false" mat-raised-button (click)="deleteLivro()">
+            <button *ngIf="livro.alugado === false" mat-raised-button (click)="deleteLivro()" id="deleteButton">
                 Deletar
             </button>
         
